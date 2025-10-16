@@ -10,5 +10,56 @@
         <a href="index.html">
         <button> Home Page!</button>
         </a>
+        <br>
+        <form action="/submit" method="post">
+            <fieldset>
+                <legend>Information needed to apply</legend>
+                <label for="name">Name</label>
+                <br>
+                <input type="text" id="name" name="name" placeholder="Enter Your Name" required>
+                <br>
+                <label for="price">Price</label>
+                <br>
+                <input type="text" id="price" name="price" placeholder="Cost Paid to You per Hour" required>
+                <br>
+                <label for="subject">Subject</label>
+                <br>
+                <select id="subject" name="subject" placeholder="Enter Your Subject to Teach" required>
+                    <option value="pla"> Select a Subject </option>
+                    <option value="Math">Math</option>
+                    <option value="English">English</option>
+                    <option value="History">History</option>
+                    <option value="Sciences">Sciences</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="French">French</option>
+                    <option value="misc">Misc</option>
+                </select>
+                <br>
+                <label for="subject2">Subject 2 (optional)</label>
+                <br>
+                <select id="subject2" name="subject2" placeholder="Enter Your Subject to Teach">
+                    <option value="pla"> Select a Subject </option>
+                    <option value="Math">Math</option>
+                    <option value="English">English</option>
+                    <option value="History">History</option>
+                    <option value="Sciences">Sciences</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="French">French</option>
+                    <option value="misc">Misc</option>
+                </select>
+                <br>
+                <label for="Email">Email</label>
+                <br>
+                <input type="email" id="email" name="email" placeholder="Enter Your Email" required>
+                <br>
+                <label for="place">Location</label>
+                <br>
+                <textarea id="place" name="place" rows:5 cols:11 placeholder="Enter your prefered work areas (if any)"></textarea>
+                <br>
+                <input type="text" id="loc" name="loc" placeholder="Enter Your Zip-Code" required>
+                <br>
+                <input type="submit" value="Upload">
+            </fieldset>
+        </form>
     </body>
 </html>
