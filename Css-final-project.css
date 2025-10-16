@@ -1,13 +1,17 @@
-h3, h6 {
+h3, h6, h2 {
     text-align:center;
-    color: orange; 
+    color: #000000; 
 }
 
-#firstPage{
-    background-color: darkblue;
+body{
+    background-color: #B3C7F7;
 }
 
 #fill {
-    margin-left: 36%;
+    margin-left: 22%;
 }
 
+fieldset {
+    text-align: center;
+    color:#000000;
+}
