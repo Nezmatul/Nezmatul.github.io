@@ -11,7 +11,7 @@
         <button> Home Page!</button>
         </a>
         <br>
-        <form action="/submit" method="post">
+        <form action="/submit" method="post" id="ideaForm">
             <fieldset>
                 <legend>Information needed to apply</legend>
                 <label for="name">Name</label>
@@ -25,7 +25,7 @@
                 <label for="subject">Subject</label>
                 <br>
                 <select id="subject" name="subject" placeholder="Enter Your Subject to Teach" required>
-                    <option value="pla"> Select a Subject </option>
+                    <option value=""> Select a Subject </option>
                     <option value="Math">Math</option>
                     <option value="English">English</option>
                     <option value="History">History</option>
@@ -38,7 +38,7 @@
                 <label for="subject2">Subject 2 (optional)</label>
                 <br>
                 <select id="subject2" name="subject2" placeholder="Enter Your Subject to Teach">
-                    <option value="pla"> Select a Subject </option>
+                    <option value=""> Select a Subject </option>
                     <option value="Math">Math</option>
                     <option value="English">English</option>
                     <option value="History">History</option>
@@ -61,5 +61,34 @@
                 <input type="submit" value="Upload">
             </fieldset>
         </form>
+
+        <script>
+            const form = document.getElementById('ideaForm');
+
+            form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const post = {
+                name: document.getElementById('name').value,
+                price: document.getElementById('price').value,
+                subject: document.getElementById('subject').value,
+                subject2: document.getElementById('subject2').value,
+                email: document.getElementById('email').value,
+                place: document.getElementById('place').value,
+                loc: document.getElementById('loc').value,
+                date: new Date().toLocaleString()
+            };
+
+            const posts = JSON.parse(localStorage.getItem('posts')) || [];
+
+            posts.push(post);
+
+            localStorage.setItem('posts', JSON.stringify(posts));
+
+            form.reset();
+
+            window.location.href = 'final-page-2.html';
+            });
+        </script>
     </body>
 </html>

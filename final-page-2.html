@@ -10,5 +10,41 @@
         <a href="index.html">
         <button> Home Page!</button>
         </a>
+
+        <h1>Current Posts</h1>
+        <div id="container"></div>
+
+        <script>
+            const blogContainer = document.getElementById('container');
+            const posts = JSON.parse(localStorage.getItem('posts')) || [];
+
+            if (posts.length === 0) {
+            blogContainer.innerHTML = "<p>No tutours currently!</p>";
+            } else {
+            posts.reverse().forEach(post => {
+                const postElement = document.createElement('div');
+                postElement.innerHTML = `
+                <h2>${post.name}</h2>
+                <p><strong>Cost per Hour:</strong> ${post.price} | <strong>Email:</strong> ${post.email} | <strong>Date:</strong> ${post.date}</p>
+                <p><em>${post.subject}</em></p>
+                <p>${post.subject2}</p>
+                <p><strong>Recommended spots:</strong> ${post.place}</p>
+                <p><strong>Location:</strong> ${post.loc}</p>
+                <button onclick="deletePost(${posts.length - 1 - posts.indexOf(post)})">🗑️ Delete</button>
+                <hr>
+                `;
+                blogContainer.appendChild(postElement);
+            });
+            }
+
+            function deletePost(index) {
+                if (confirm("Are you sure you want to delete this post?")) {
+                    const posts = JSON.parse(localStorage.getItem('posts')) || [];
+                    posts.splice(index, 1); // remove that one post
+                    localStorage.setItem('posts', JSON.stringify(posts)); // save new array
+                    location.reload(); // refresh page to show updated list
+                }
+            }
+        </script>
     </body>
 </html>
