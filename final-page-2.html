@@ -40,9 +40,9 @@
             function deletePost(index) {
                 if (confirm("Are you sure you want to delete this post?")) {
                     const posts = JSON.parse(localStorage.getItem('posts')) || [];
-                    posts.splice(index, 1); // remove that one post
-                    localStorage.setItem('posts', JSON.stringify(posts)); // save new array
-                    location.reload(); // refresh page to show updated list
+                    posts.splice(index, 1); 
+                    localStorage.setItem('posts', JSON.stringify(posts)); 
+                    location.reload();
                 }
             }
         </script>
